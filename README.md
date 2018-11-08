@@ -25,7 +25,7 @@ This project also requires the following packages:
 1. Firstly, you will need to fork and then clone this repo:
 
 ```
-git clone https://github.com/clairemcn/BE2-northcoders-news.git
+git clone https://github.com/mcnalc/BE2-northcoders-news.git
 ```
 
 2. Then cd into the repo and install the dependencies:
@@ -95,7 +95,7 @@ This app has been deployed to [Heroku](https://dashboard.heroku.com/).
 
 Claire McNally
 
-[github](http://github.com/clairemcn)
+[github](http://github.com/mcnalc)
 
 ## License
 
