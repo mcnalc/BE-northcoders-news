@@ -119,7 +119,6 @@ describe("/api", () => {
           .get(`/api/articles/${articleDoc[0]._id}`)
           .expect(200)
           .then(res => {
-            console.log(res.body);
             expect(res.body.article.title).to.equal(articleDoc[0].title);
             expect(res.body.article.title).to.not.equal("This random title");
             expect(res.body.article._id).to.equal(`${articleDoc[0]._id}`);
@@ -249,18 +248,17 @@ describe("/api", () => {
               expect(msg).to.equal("Bad Request");
             });
         });
-        it.only("POST returns a 404 for an article id that does not exist", () => {
+        it("POST returns a 404 for an article id that does not exist", () => {
           const newComment = {
             created_by: `${userDoc[0]._id}`,
             body: "New comment"
           };
-          console.log(mongoose.Types.ObjectId());
           return request
             .post(`/api/articles/${mongoose.Types.ObjectId()}/comments`)
             .send(newComment)
             .expect(404)
             .then(({ body: { msg } }) => {
-              expect(msg).to.equal("Page Not Found");
+              expect(msg).to.equal("No article with that ID exists");
             });
         });
         describe("/:comment_id", () => {
