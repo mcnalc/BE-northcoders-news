@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Northcoders News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 18px;
+        padding: 0 30px;
+        color: #000;
+        background-color: #fff
+    }
+
+    span {
+        font-size: 14px;
+        color: purple
+    }
+</style>
+
+<body>
+    <h1>Northcoders News</h1>
+
+    <h2>Welcome to Northcoders News! Available endpoints:</h2>
+    <p>
+
+        <strong>GET</strong> /api <br>
+        <span>HTML page with documentation for all the available endpoints</span>
+    </p>
+
+    <p>
+        <h2>Topics:</h2>
+        <strong>GET</strong> /api/topics <br>
+        <span>Gets all the topics</span>
+    </p>
+
+    <p>
+        <strong>GET</strong> /api/topics/:topic_slug/articles <br>
+        <span>Returns all the articles available for a certain topic</span>
+    </p>
+
+    <p>
+        <strong>POST</strong> /api/topics/:topic_slug/articles <br>
+        <span>Adds a new article to a topic</span>
+    </p>
+
+    <p>
+        <h2>Articles:</h2>
+        <strong>GET</strong> /api/articles <br>
+        <span>Returns all the articles</span>
+    </p>
+
+    <p>
+        <strong>GET</strong> /api/articles/:article_id <br>
+        <span>Gets an individual article</span>
+    </p>
+
+    <p>
+        <strong>GET</strong> /api/articles/:article_id/comments <br>
+        <span>Gets all the comments for a individual article</span>
+    </p>
+
+    <p>
+        <strong>POST</strong> /api/articles/:article_id/comments <br>
+        <span>Adds a new comment to an article.</span>
+    </p>
+
+    <p>
+        <strong>PATCH</strong> /api/articles/:article_id <br>
+        <span>Increments or decrements the votes of an article by one</span>
+    </p>
+
+    <p>
+        <h2>Comments:</h2>
+        <strong>PATCH</strong> /api/comments/:comment_id <br>
+        <span>Increments or decrements the votes of a comment by one</span>
+    </p>
+
+    <p>
+        <strong>DELETE</strong> /api/comments/:comment_id <br>
+        <span>Deletes a comment</span>
+    </p>
+
+    <p>
+        <h2>Users:</h2>
+        <strong>GET</strong> /api/users/:username <br>
+        <span>Returns a JSON object with the profile data for the specified user</span>
+    </p>
+
+
+</body>
+
+</html>
