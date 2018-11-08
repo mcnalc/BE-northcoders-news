@@ -36,48 +36,48 @@ npm install
 
 3. Open a separate terminal and run Mongo there using the following command:
 
-   ```
-   mongod
-   ```
+```
+mongod
+```
 
 4. Then you need to create a config directory
 
-   ```
-   mkdir config
-   touch config/index.js
-   ```
+```
+mkdir config
+touch config/index.js
+```
 
 5. Paste the following code into your config/index.js
 
-   ```javascript
-   const NODE_ENV = process.env.NODE_ENV || "development";
+```javascript
+const NODE_ENV = process.env.NODE_ENV || "development";
 
-   const config = {
-     test: {
-       DB_URL: "mongodb://localhost:27017/nc_news_test"
-     },
-     development: {
-       DB_URL: "mongodb://localhost:27017/nc_news"
-     }
-   };
-   module.exports = config[NODE_ENV];
-   ```
+const config = {
+  test: {
+    DB_URL: "mongodb://localhost:27017/nc_news_test"
+  },
+  development: {
+    DB_URL: "mongodb://localhost:27017/nc_news"
+  }
+};
+module.exports = config[NODE_ENV];
+```
 
-   6. Seed the development database using the following command:
+6.  Seed the development database using the following command:
 
-   ```
-   npm run seed:dev
-   ```
+```
+npm run seed:dev
+```
 
-   7. Start the express server:
+7.  Start the express server:
 
-   ```
-   npm run dev
-   ```
+```
+npm run dev
+```
 
-   You can now access the API through port 9090.
+You can now access the API through port 9090.
 
-   All routes for this API can be found at https://localhost:9090/
+All routes for this API can be found at https://localhost:9090/
 
 ## Running the tests
 
