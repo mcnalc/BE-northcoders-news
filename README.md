@@ -8,6 +8,8 @@ It allows users to post articles categorised by topic which other users can read
 
 To use NC News, you will need up-to-date versions of Node and MongoDB.
 
+### Dependencies
+
 This project also requires the following packages:
 
 - [express](https://www.npmjs.com/package/express)
@@ -87,12 +89,12 @@ npm t
 
 ## Deployment
 
-This app has been deployed to [Heroku](https://dashboard.heroku.com/).  
-MongoDB data is hosted using [mLabs](https://mlab.com/).
+This app has been deployed to [Heroku](https://dashboard.heroku.com/).
 
 ## Authors
 
 Claire McNally
+
 [github](http://github.com/clairemcn)
 
 ## License
