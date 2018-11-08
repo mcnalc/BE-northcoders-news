@@ -1,78 +1,99 @@
 # NC News API
 
-NC News is a RESTful API which uses express and MongoDB.
+NC News is a RESTful API which uses express and MongoDB. Here is a link to a live version of the app on Heroku.
 
 It allows users to post articles categorised by topic which other users can read and comment on. Articles and comments can be upvoted or downvoted by users.
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-To
+To use NC News, you will need up-to-date versions of Node and MongoDB.
 
-### Installing
+This project also requires the following packages:
 
-A step by step series of examples that tell you how to get a development env running
+- [express](https://www.npmjs.com/package/express)
+- [body-parser](https://www.npmjs.com/package/body-parser)
+- [mongoose](https://www.npmjs.com/package/mongoose)
+- [mocha](https://www.npmjs.com/package/mocha)
+- [chai](https://www.npmjs.com/package/chai)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [supertest](https://www.npmjs.com/package/supertest)
 
-Say what the step will be
+## Getting Started
+
+1. Firstly, you will need to fork and then clone this repo:
 
 ```
-Give the example
+git clone https://github.com/clairemcn/BE2-northcoders-news.git
 ```
 
-And repeat
+2. Then cd into the repo and install the dependencies:
 
 ```
-until finished
+npm install
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+3. Open a separate terminal and run Mongo there using the following command:
+
+   ```
+   mongod
+   ```
+
+4. Then you need to create a config directory
+
+   ```
+   mkdir config
+   touch config/index.js
+   ```
+
+5. Paste the following code into your config/index.js
+
+   ```javascript
+   const NODE_ENV = process.env.NODE_ENV || "development";
+
+   const config = {
+     test: {
+       DB_URL: "mongodb://localhost:27017/nc_news_test"
+     },
+     development: {
+       DB_URL: "mongodb://localhost:27017/nc_news"
+     }
+   };
+   module.exports = config[NODE_ENV];
+   ```
+
+   6. Seed the development database using the following command:
+
+   ```
+   npm run seed:dev
+   ```
+
+   7. Start the express server:
+
+   ```
+   npm run dev
+   ```
+
+   You can now access the API through port 9090.
+
+   All routes for this API can be found at https://localhost:9090/
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+You are able to test each endpoint locally for successful and unsuccessful requests using:
 
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+npm t
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+This app has been deployed to [Heroku](https://dashboard.heroku.com/).  
+MongoDB data is hosted using [mLabs](https://mlab.com/).
 
 ## Authors
 
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Claire McNally
+[github](http://github.com/clairemcn)
 
 ## License
 

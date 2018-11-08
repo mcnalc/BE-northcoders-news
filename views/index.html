@@ -23,15 +23,15 @@
 </style>
 
 <body>
-    <h1>Northcoders News</h1>
+    <h1>NC News</h1>
 
-    <h2>Welcome to Northcoders News! Available endpoints:</h2>
-    <p>
-
+    <h2>Welcome to NC News!</h2>
+    <h3>Available endpoints:</h3>
+<hr>
         <strong>GET</strong> /api <br>
         <span>HTML page with documentation for all the available endpoints</span>
     </p>
-
+<hr>
     <p>
         <h2>Topics:</h2>
         <strong>GET</strong> /api/topics <br>
@@ -47,7 +47,7 @@
         <strong>POST</strong> /api/topics/:topic_slug/articles <br>
         <span>Adds a new article to a topic</span>
     </p>
-
+<hr>
     <p>
         <h2>Articles:</h2>
         <strong>GET</strong> /api/articles <br>
@@ -73,7 +73,7 @@
         <strong>PATCH</strong> /api/articles/:article_id <br>
         <span>Increments or decrements the votes of an article by one</span>
     </p>
-
+<hr>
     <p>
         <h2>Comments:</h2>
         <strong>PATCH</strong> /api/comments/:comment_id <br>
@@ -84,7 +84,7 @@
         <strong>DELETE</strong> /api/comments/:comment_id <br>
         <span>Deletes a comment</span>
     </p>
-
+<hr>
     <p>
         <h2>Users:</h2>
         <strong>GET</strong> /api/users/:username <br>

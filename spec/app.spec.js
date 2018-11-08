@@ -16,7 +16,8 @@ describe("/api", () => {
   beforeEach(() =>
     seedDB(topicData, userData, articleData, commentData).then(docs => {
       [topicDoc, userDoc, articleDoc, commentDoc] = docs;
-    }));
+    })
+  );
   after(() => mongoose.disconnect());
 
   describe("/topics", () => {
@@ -248,19 +249,20 @@ describe("/api", () => {
               expect(msg).to.equal("Bad Request");
             });
         });
-        // it("POST returns a 404 for an article id that does not exist", () => {
-        //   const newComment = {
-        //     created_by: `${articleDoc[0]._id}`,
-        //     body: "New comment"
-        //   };
-        //   return request
-        //     .post(`/api/articles/${mongoose.Types.ObjectId()}/comments`)
-        //     .send(newComment)
-        //     .expect(404)
-        //     .then(({ body: { msg } }) => {
-        //       expect(msg).to.equal("Page Not Found");
-        //     });
-        // });
+        it.only("POST returns a 404 for an article id that does not exist", () => {
+          const newComment = {
+            created_by: `${userDoc[0]._id}`,
+            body: "New comment"
+          };
+          console.log(mongoose.Types.ObjectId());
+          return request
+            .post(`/api/articles/${mongoose.Types.ObjectId()}/comments`)
+            .send(newComment)
+            .expect(404)
+            .then(({ body: { msg } }) => {
+              expect(msg).to.equal("Page Not Found");
+            });
+        });
         describe("/:comment_id", () => {
           it("PATCH returns status 200 and a comment with a vote count increased by one when the request query is set to 'up'", () => {
             return request

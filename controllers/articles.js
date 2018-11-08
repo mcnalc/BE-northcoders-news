@@ -46,9 +46,12 @@ const getCommentsByArticleId = (req, res, next) => {
 
 const addCommentToArticle = (req, res, next) => {
   const article_id = req.params.article_id;
+  console.log(article_id);
   Comment.create({ ...req.body, belongs_to: article_id })
     .then(comment => {
+      console.log(comment);
       res.status(201).send({ comment });
+      return Article.findById(comment.belongs_to).then(console.log);
     })
     .catch(next);
 };
