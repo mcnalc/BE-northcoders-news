@@ -16,14 +16,22 @@ const getAllArticles = (req, res, next) => {
 };
 
 const getArticlesById = (req, res, next) => {
-  Article.findById(req.params.article_id)
-    .populate("created_by")
-    .then(article => {
-      if (!article) {
-        return Promise.reject({ status: 404, msg: "Page Not Found" });
-      }
-      res.status(200).send({ article });
+  return Promise.all([
+    Article.findById(req.params.article_id)
+      .populate("created_by")
+      .lean(),
+    Comment.countDocuments({ belongs_to: req.params.article_id })
+  ])
+    .then(([articleDoc, commentCount]) => {
+      if (!articleDoc) throw { status: 404, msg: "Page Not Found" };
+      const article = {
+        ...articleDoc,
+        comment_count: commentCount
+      };
+
+      res.send({ article });
     })
+
     .catch(next);
 };
 
