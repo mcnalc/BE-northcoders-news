@@ -4,7 +4,10 @@ const { topicData, articleData, commentData, userData } = require("./devData");
 const seedDB = require("./seed");
 
 mongoose
-  .connect(DB_URL)
+  .connect(
+    DB_URL,
+    { useNewUrlParser: true }
+  )
   .then(() => {
     return seedDB(topicData, userData, articleData, commentData);
   })
