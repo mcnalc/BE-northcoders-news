@@ -1,6 +1,6 @@
 # NC News API
 
-NC News is a RESTful API which uses express and MongoDB. Here is a link to a live version of the app on Heroku.
+NC News is a RESTful API which uses express and MongoDB. Here is a link to a live version of the app on [Heroku](https://clairencnews.herokuapp.com/api).
 
 It allows users to post articles categorised by topic which other users can read and comment on. Articles and comments can be upvoted or downvoted by users.
 
