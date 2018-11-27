@@ -1,4 +1,5 @@
 const app = require("express")();
+const cors = require("cors");
 const apiRouter = require("./routes/api");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -15,6 +16,8 @@ mongoose
     console.log("Connected to database!");
   })
   .catch();
+
+app.use(cors());
 
 app.get("/api", (req, res, next) => {
   res.sendFile(`${__dirname}/views/index.html`);
