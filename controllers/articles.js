@@ -46,7 +46,7 @@ const getCommentsByArticleId = (req, res, next) => {
         .populate("belongs_to")
     )
     .then(comments => {
-      // if (comments.length === 0) throw { status: 404 };
+      if (comments.length === []) return "No comments yet!";
       res.send({ comments });
     })
     .catch(next);
