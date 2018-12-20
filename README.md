@@ -93,7 +93,7 @@ This app has been deployed to [Heroku](https://dashboard.heroku.com/).
 
 ## Authors
 
-Claire McNally
+Claire M
 
 [github](http://github.com/mcnalc)
 
