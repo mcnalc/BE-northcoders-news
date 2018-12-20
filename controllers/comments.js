@@ -18,10 +18,10 @@ const upOrDownvoteComment = (req, res, next) => {
     },
     { new: true }
   )
-    .then(comment => {
-      if (comment === null) throw { status: 404 };
-      res.send({ comment });
-    })
+    // .then(comment => {
+    //   if (comment === null) throw { status: 404 };
+    //   res.send({ comment });
+    // })
     .catch(err => {
       if (err.status === 404) next(err);
       else
